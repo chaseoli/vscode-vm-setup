@@ -1,13 +1,5 @@
-#!/usr/bin/env bash
-
-# install sudo
-apt-get install sudo
-
-# install updates and upgrade outdated packages
-apt update -y && apt upgrade -y
-
 # get curl
-apt install curl -y
+sudo apt install curl -y
 
 # install nodejs
 wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
@@ -26,19 +18,27 @@ npm -v
 npm i -g typescript firebase-tools @loopback/cli @angular/cli mocha 
 
 # install git
-apt install git -y
+sudo apt install git -y
+
+# promt for git info
+read -p "Your .git username " GIT_USERNAME
+read -p "Your .git email? " GIT_EMAIL
+
+# add the user git information
+git config --global user.name "$GIT_USERNAME"
+git config --global user.email "$GIT_EMAIL"
 
 # install vscode server
 wget -O- https://aka.ms/install-vscode-server/setup.sh | sh
 
 # install the OpenJDK JRE:
-apt install default-jre -y
+sudo apt install default-jre -y
 java -version
 
 # install python 
-apt-get install python3.6 -y
+sudo apt-get install python3.6 -y
 python3 --version
-apt install python3-pip -y
+sudo apt install python3-pip -y
 pip3 -V
 
 # install go
@@ -48,3 +48,4 @@ tar -C /usr/local -xzf go1.20.2.linux-amd64.tar.gz
 export PATH=$PATH:/usr/local/go/bin
 go version
 
+echo "Welcome $NON_ROOT_USER! You're all set."
