@@ -1,66 +1,68 @@
 read -p "Enter your first name (no spaces)? " NON_ROOT_USER
 
-# install updates and upgrade outdated packages
-apt update -y && apt upgrade -y
+echo "Hi $NON_ROOT_USER! Just getting some stuff ready."
 
-# install sudo
-apt-get install sudo
+# # install updates and upgrade outdated packages
+# apt update -y && apt upgrade -y
 
-# create the user
-adduser --gecos "" $NON_ROOT_USER
-usermod -aG sudo $NON_ROOT_USER
+# # install sudo
+# apt-get install sudo
 
-# swith user
-su $NON_ROOT_USER
+# # create the user
+# adduser --gecos "" $NON_ROOT_USER
+# usermod -aG sudo $NON_ROOT_USER
 
-# get curl
-sudo apt install curl -y
+# # swith user
+# su $NON_ROOT_USER
 
-# install nodejs
-wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
-source ~/.bashrc 
+# # get curl
+# sudo apt install curl -y
 
-# get nvm 
-nvm -v
-nvm install --lts
-nvm use --lts 
+# # install nodejs
+# wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+# source ~/.bashrc 
 
-# get node version
-node -v
-npm -v
+# # get nvm 
+# nvm -v
+# nvm install --lts
+# nvm use --lts 
 
-# install global node packages
-npm i -g typescript firebase-tools @loopback/cli @angular/cli mocha 
+# # get node version
+# node -v
+# npm -v
 
-# install git
-sudo apt install git -y
+# # install global node packages
+# npm i -g typescript firebase-tools @loopback/cli @angular/cli mocha 
 
-# promt for git info
-read -p "Your .git username " GIT_USERNAME
-read -p "Your .git email? " GIT_EMAIL
+# # install git
+# sudo apt install git -y
 
-# add the user git information
-git config --global user.name "$GIT_USERNAME"
-git config --global user.email "$GIT_EMAIL"
+# # promt for git info
+# read -p "Your .git username " GIT_USERNAME
+# read -p "Your .git email? " GIT_EMAIL
 
-# install vscode server
-wget -O- https://aka.ms/install-vscode-server/setup.sh | sh
+# # add the user git information
+# git config --global user.name "$GIT_USERNAME"
+# git config --global user.email "$GIT_EMAIL"
 
-# install the OpenJDK JRE:
-sudo apt install default-jre -y
-java -version
+# # install vscode server
+# wget -O- https://aka.ms/install-vscode-server/setup.sh | sh
 
-# install python 
-sudo apt-get install python3.6 -y
-python3 --version
-sudo apt install python3-pip -y
-pip3 -V
+# # install the OpenJDK JRE:
+# sudo apt install default-jre -y
+# java -version
 
-# install go
-curl -OL https://golang.org/dl/go1.20.2.linux-amd64.tar.gz
-# rm -rf /usr/local/go && tar -C /usr/local -xzf go1.20.2.linux-amd64.tar.gz
-tar -C /usr/local -xzf go1.20.2.linux-amd64.tar.gz
-export PATH=$PATH:/usr/local/go/bin
-go version
+# # install python 
+# sudo apt-get install python3.6 -y
+# python3 --version
+# sudo apt install python3-pip -y
+# pip3 -V
 
-echo "Welcome $NON_ROOT_USER! You're all set."
+# # install go
+# curl -OL https://golang.org/dl/go1.20.2.linux-amd64.tar.gz
+# # rm -rf /usr/local/go && tar -C /usr/local -xzf go1.20.2.linux-amd64.tar.gz
+# tar -C /usr/local -xzf go1.20.2.linux-amd64.tar.gz
+# export PATH=$PATH:/usr/local/go/bin
+# go version
+
+# echo "Welcome $NON_ROOT_USER! You're all set."
