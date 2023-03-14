@@ -7,6 +7,10 @@ echo "Hi $NON_ROOT_USER! Just getting some stuff ready."
 adduser --gecos "" $NON_ROOT_USER
 usermod -aG sudo $NON_ROOT_USER
 
+# promt for git info
+read -p "Your .git username " GIT_USERNAME
+read -p "Your .git email? " GIT_EMAIL
+
 # install sudo
 apt-get install sudo
 
@@ -15,10 +19,7 @@ cd /home/$NON_ROOT_USER
 # get the install script
 wget -O /tmp/install.sh https://raw.githubusercontent.com/chaseoli/vscode-vm-setup/v1.0.4/install.sh
 
-# swith user
-su $NON_ROOT_USER
-
 echo "Installing for developer environment tooling..."
 
 # install as other user
-bash /tmp/install.sh $NON_ROOT_USER $GIT_USERNAME $GIT_EMAIL
+sudo -H -u $NON_ROOT_USER bash -c "bash /tmp/install.sh $NON_ROOT_USER $GIT_USERNAME $GIT_EMAIL"
