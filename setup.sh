@@ -13,7 +13,7 @@ apt-get install sudo
 cd /home/$NON_ROOT_USER
 
 # get the install script
-wget -O /tmp/install.sh https://raw.githubusercontent.com/chaseoli/vscode-vm-setup/master/install.sh
+wget -O /tmp/install.sh https://raw.githubusercontent.com/chaseoli/vscode-vm-setup/v1.0.4/install.sh
 
 # swith user
 su $NON_ROOT_USER
