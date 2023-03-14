@@ -3,7 +3,6 @@ NON_ROOT_USER=$1
 GIT_USERNAME=$2
 GIT_EMAIL=$3
 
-
 # install updates and upgrade outdated packages
 sudo apt update -y && sudo apt upgrade -y
 
@@ -36,6 +35,8 @@ npm i -g typescript firebase-tools @loopback/cli @angular/cli mocha
 # install docker
 curl -fsSL https://get.docker.com -o get-docker.sh
 sudo sh get-docker.sh
+# clean-up docker download
+rm get-docker.sh 
 
 # install helm
 curl https://baltocdn.com/helm/signing.asc | gpg --dearmor | sudo tee /usr/share/keyrings/helm.gpg > /dev/null

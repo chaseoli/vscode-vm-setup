@@ -3,6 +3,7 @@ Runs a bash script to setup a remote software development server that can be use
 
  Installs the following: 
   - git
+  - vs code-server
   - NodeJs
   - Angular
   - Typescript
@@ -16,8 +17,18 @@ Runs a bash script to setup a remote software development server that can be use
 > Consider using Proxmox hypervisor to host your development VMs  
 
 ```shell
-# Run from your vm terminal
+# STEP 1 - INSTALL DEVELOPMENT TOOLING
+# Create a vm somewhere... like GCP, Azure, or on a dusty laptop with PROXMOX
+
+# STEP 2 - INSTALL DEVELOPMENT TOOLING
+# Run from your vm terminal:
 wget -O /tmp/setup.sh https://raw.githubusercontent.com/chaseoli/vscode-vm-setup/v1.0.4/setup.sh && bash /tmp/setup.sh
+
+# STEP 3 - ACCESS VS CODE SERVER
+# Boom baby...
+code-server --accept-server-license-terms
+# And follow instructions to login...
+
 # Enjoy!
 
 ```
