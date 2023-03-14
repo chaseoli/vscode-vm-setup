@@ -13,10 +13,6 @@ apt-get install sudo
 echo "wget -O /home/$NON_ROOT_USER/install.sh https://raw.githubusercontent.com/chaseoli/vscode-vm-setup/v1.0.0/install.sh" >> /home/$NON_ROOT_USER/.bashrc
 echo "bash install.sh $NON_ROOT_USER" >> /home/$NON_ROOT_USER/.bashrc
 
-# cleanup + remove last two lines from .bashrc
-head -n -2 ~/.bashrc > temp && mv temp ~/.bashrc
-rm ~/setup.sh
-
 cd /home/$NON_ROOT_USER
 
 # swith user
