@@ -17,8 +17,9 @@ Runs a bash script to setup a remote software development server that can be use
 > Consider using Proxmox hypervisor to host your development VMs  
 
 ```shell
-# STEP 1 - INSTALL DEVELOPMENT TOOLING
+# STEP 1 - CREATE VM
 # Create a vm somewhere... like GCP, Azure, or on a dusty laptop with PROXMOX
+# For setting up a FREE vm using PROXMOX, watch https://youtu.be/_u8qTN3cCnQ
 
 # STEP 2 - INSTALL DEVELOPMENT TOOLING
 # Run from your vm terminal:
