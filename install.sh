@@ -3,11 +3,15 @@ NON_ROOT_USER=$1
 GIT_USERNAME=$2
 GIT_EMAIL=$3
 
+# install updates and upgrade outdated packages
+sudo apt update -y && sudo apt upgrade -y
+
 # install git
 sudo apt install git -y
 
-# install updates and upgrade outdated packages
-sudo apt update -y && sudo apt upgrade -y
+# add the user git information
+git config --global user.name "$GIT_USERNAME"
+git config --global user.email "$GIT_EMAIL"
 
 # get curl
 sudo apt install curl -y
@@ -28,9 +32,6 @@ npm -v
 # install global node packages
 npm i -g typescript firebase-tools @loopback/cli @angular/cli mocha 
 
-# add the user git information
-git config --global user.name "$GIT_USERNAME"
-git config --global user.email "$GIT_EMAIL"
 
 # install vscode server
 wget -O- https://aka.ms/install-vscode-server/setup.sh | sh
