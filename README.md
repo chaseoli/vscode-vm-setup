@@ -9,5 +9,3 @@ bash /tmp/setup.sh
 # Enjoy!
 
 ```
-
-

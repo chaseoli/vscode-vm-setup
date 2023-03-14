@@ -1,6 +1,11 @@
+# get username
 read -p "Enter a username (no spaces)? " NON_ROOT_USER
 
 echo "Hi $NON_ROOT_USER! Just getting some stuff ready."
+
+# promt for git info
+read -p "Your .git username " GIT_USERNAME
+read -p "Your .git email? " GIT_EMAIL
 
 # create the user
 adduser --gecos "" $NON_ROOT_USER
@@ -15,7 +20,7 @@ cd /home/$NON_ROOT_USER
 su $NON_ROOT_USER
 
 # get the install script
-wget -O /tmp/setup.sh https://raw.githubusercontent.com/chaseoli/vscode-vm-setup/v1.0.3/install.sh
+wget -O /tmp/install.sh https://raw.githubusercontent.com/chaseoli/vscode-vm-setup/v1.0.3/install.sh
 
 # install as other user
-bash /tmp/install.sh $NON_ROOT_USER
+bash /tmp/install.sh $NON_ROOT_USER $GIT_USERNAME $GIT_EMAIL
