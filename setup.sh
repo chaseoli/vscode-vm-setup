@@ -9,11 +9,13 @@ usermod -aG sudo $NON_ROOT_USER
 # install sudo
 apt-get install sudo
 
-# add install script to .bashrc for new user
-echo "wget -O /home/$NON_ROOT_USER/install.sh https://raw.githubusercontent.com/chaseoli/vscode-vm-setup/v1.0.0/install.sh" >> /home/$NON_ROOT_USER/.bashrc
-echo "bash install.sh $NON_ROOT_USER" >> /home/$NON_ROOT_USER/.bashrc
-
 cd /home/$NON_ROOT_USER
 
 # swith user
 su $NON_ROOT_USER
+
+# get the install script
+wget -O /tmp/setup.sh https://raw.githubusercontent.com/chaseoli/vscode-vm-setup/v1.0.3/install.sh
+
+# install as other user
+bash /tmp/install.sh $NON_ROOT_USER
