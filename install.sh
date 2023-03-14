@@ -1,12 +1,10 @@
 # set the non-root username as var
 NON_ROOT_USER=$1
+GIT_USERNAME=$2
+GIT_EMAIL=$3
 
 # install git
 sudo apt install git -y
-
-# promt for git info
-read -p "Your .git username " GIT_USERNAME
-read -p "Your .git email? " GIT_EMAIL
 
 # install updates and upgrade outdated packages
 sudo apt update -y && sudo apt upgrade -y
