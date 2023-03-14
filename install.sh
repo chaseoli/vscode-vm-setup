@@ -59,4 +59,5 @@ echo "export PATH=$PATH:/usr/local/go/bin" >> /home/$NON_ROOT_USER/.bashrc
 rm ~/$GO_TARGET
 
 # done
-echo "Welcome $NON_ROOT_USER! You're all set."
+echo "Welcome $NON_ROOT_USER! You're all set. Restarting..."
+sudo reboot now
