@@ -9,7 +9,8 @@ usermod -aG sudo $NON_ROOT_USER
 # install sudo
 apt-get install sudo
 
-install_dev(){
+install_dev()
+{
     
     # install git
     sudo apt install git -y
