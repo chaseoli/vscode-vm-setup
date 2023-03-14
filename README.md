@@ -1,13 +1,33 @@
 # Usage
-Runs a script on Ubuntu Server start-up and converts it to a VS Code optimized [vs code-server](https://code.visualstudio.com/docs/remote/vscode-server)
+Runs a bash script to setup a remote software development server that can be used with [vs code-server](https://code.visualstudio.com/docs/remote/vscode-server).
+
+ Installs the following: 
+  - git
+  - vs code-server
+  - NodeJs
+  - Angular
+  - Typescript
+  - Python3
+  - Java
+  - Go
+  - Docker
+  - Helm
+  - Terraform
+
 > Consider using Proxmox hypervisor to host your development VMs  
 
 ```shell
-# Step 1 - Setup your non-root user 
-wget -O /tmp/setup.sh https://raw.githubusercontent.com/chaseoli/vscode-vm-setup/master/setup.sh && bash /tmp/setup.sh
+# STEP 1 - INSTALL DEVELOPMENT TOOLING
+# Create a vm somewhere... like GCP, Azure, or on a dusty laptop with PROXMOX
 
-# Step2 - install dev dependencies for your new user
-bash /tmp/install.sh
+# STEP 2 - INSTALL DEVELOPMENT TOOLING
+# Run from your vm terminal:
+wget -O /tmp/setup.sh https://raw.githubusercontent.com/chaseoli/vscode-vm-setup/v1.0.4/setup.sh && bash /tmp/setup.sh
+
+# STEP 3 - ACCESS VS CODE SERVER
+# Boom baby...
+code-server --accept-server-license-terms
+# And follow instructions to login...
 
 # Enjoy!
 

@@ -1,9 +1,7 @@
 # set the non-root username as var
-NON_ROOT_USER=$(whoami)
-
-# promt for git info
-read -p "Your .git username " GIT_USERNAME
-read -p "Your .git email? " GIT_EMAIL
+NON_ROOT_USER=$1
+GIT_USERNAME=$2
+GIT_EMAIL=$3
 
 # install updates and upgrade outdated packages
 sudo apt update -y && sudo apt upgrade -y
@@ -34,6 +32,33 @@ npm -v
 # install global node packages
 npm i -g typescript firebase-tools @loopback/cli @angular/cli mocha 
 
+# install docker
+curl -fsSL https://get.docker.com -o get-docker.sh
+sudo sh get-docker.sh
+# clean-up docker download
+rm get-docker.sh 
+
+# install helm
+curl https://baltocdn.com/helm/signing.asc | gpg --dearmor | sudo tee /usr/share/keyrings/helm.gpg > /dev/null
+sudo apt-get install apt-transport-https --yes
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/helm.gpg] https://baltocdn.com/helm/stable/debian/ all main" | sudo tee /etc/apt/sources.list.d/helm-stable-debian.list
+sudo apt-get update
+sudo apt-get install helm
+
+# install terraform
+sudo apt-get update && sudo apt-get install -y gnupg software-properties-common
+wget -O- https://apt.releases.hashicorp.com/gpg | \
+    gpg --dearmor | \
+    sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg
+gpg --no-default-keyring \
+    --keyring /usr/share/keyrings/hashicorp-archive-keyring.gpg \
+    --fingerprint
+echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] \
+    https://apt.releases.hashicorp.com $(lsb_release -cs) main" | \
+    sudo tee /etc/apt/sources.list.d/hashicorp.list
+sudo apt update
+sudo apt-get install terraform
+terraform version
 
 # install vscode server
 wget -O- https://aka.ms/install-vscode-server/setup.sh | sh
