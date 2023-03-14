@@ -1,3 +1,6 @@
+# install updates and upgrade outdated packages
+sudo apt update -y && sudo apt upgrade -y
+
 # get curl
 sudo apt install curl -y
 
