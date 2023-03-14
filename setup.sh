@@ -76,5 +76,6 @@ install_dev()
 }
 
 # swith user
-su --session-command install_dev - $NON_ROOT_USER
+su $NON_ROOT_USER
 
+install_dev
