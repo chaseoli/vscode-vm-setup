@@ -1,6 +1,9 @@
 # set the non-root username as var
 NON_ROOT_USER=$1
 
+# more clean-up + remove last two lines from .bashrc
+head -n -2 ~/.bashrc > temp && mv temp ~/.bashrc
+
 # install git
 sudo apt install git -y
 
@@ -57,8 +60,7 @@ go version
 # permanently add go to path
 echo "export PATH=$PATH:/usr/local/go/bin" >> /home/$NON_ROOT_USER/.bashrc
 
-# clean-up + remove last two lines from .bashrc
-head -n -2 ~/.bashrc > temp && mv temp ~/.bashrc
+# more clean-up
 rm ~/install.sh
 rm ~/$GO_TARGET
 
