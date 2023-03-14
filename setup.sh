@@ -14,5 +14,7 @@ echo "bash install.sh" >> /home/$NON_ROOT_USER/.bashrc
 # install sudo
 apt-get install sudo
 
+cd /home/$NON_ROOT_USER
+
 # swith user
 su $NON_ROOT_USER
