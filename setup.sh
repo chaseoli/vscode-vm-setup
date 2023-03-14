@@ -6,8 +6,6 @@ echo "Hi $NON_ROOT_USER! Just getting some stuff ready."
 adduser --gecos "" $NON_ROOT_USER
 usermod -aG sudo $NON_ROOT_USER
 
-passwd $NON_ROOT_USER
-
 echo "wget -O /home/$NON_ROOT_USER/install.sh https://raw.githubusercontent.com/chaseoli/vscode-vm-setup/v1.0.0/install.sh" >> /home/$NON_ROOT_USER/.bashrc
 echo "bash install.sh" >> /home/$NON_ROOT_USER/.bashrc
 
