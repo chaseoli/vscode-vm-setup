@@ -1,8 +1,5 @@
-# set the non-root username as var
-NON_ROOT_USER=$1
 
-# more clean-up + remove last two lines from .bashrc
-head -n -2 ~/.bashrc > temp && mv temp ~/.bashrc
+NON_ROOT_USER=$1
 
 # install git
 sudo apt install git -y
@@ -56,13 +53,12 @@ curl -OL https://golang.org/dl/$GO_TARGET
 sudo tar -C /usr/local -xzf $GO_TARGET
 export PATH=$PATH:/usr/local/go/bin
 go version
-
 # permanently add go to path
 echo "export PATH=$PATH:/usr/local/go/bin" >> /home/$NON_ROOT_USER/.bashrc
-
-# more clean-up
-rm ~/install.sh
+# cleanup go download
 rm ~/$GO_TARGET
+
+source ~/.bashrc
 
 # done
 echo "Welcome $NON_ROOT_USER! You're all set."
