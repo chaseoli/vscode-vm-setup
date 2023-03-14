@@ -16,11 +16,13 @@ apt-get install sudo
 
 cd /home/$NON_ROOT_USER
 
+# get the install script
+wget -O /tmp/install.sh https://raw.githubusercontent.com/chaseoli/vscode-vm-setup/v1.0.3/install.sh
+
 # swith user
 su $NON_ROOT_USER
 
-# get the install script
-wget -O /tmp/install.sh https://raw.githubusercontent.com/chaseoli/vscode-vm-setup/v1.0.3/install.sh
+echo "Installing for developer environment tooling..."
 
 # install as other user
 bash /tmp/install.sh $NON_ROOT_USER $GIT_USERNAME $GIT_EMAIL
