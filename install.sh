@@ -1,3 +1,13 @@
+# set the non-root username as var
+NON_ROOT_USER=$1
+
+# install git
+sudo apt install git -y
+
+# promt for git info
+read -p "Your .git username " GIT_USERNAME
+read -p "Your .git email? " GIT_EMAIL
+
 # install updates and upgrade outdated packages
 sudo apt update -y && sudo apt upgrade -y
 
@@ -6,7 +16,7 @@ sudo apt install curl -y
 
 # install nodejs
 wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
-source ~/.bashrc 
+source ~/.nvm/nvm.sh 
 
 # get nvm 
 nvm -v
@@ -19,13 +29,6 @@ npm -v
 
 # install global node packages
 npm i -g typescript firebase-tools @loopback/cli @angular/cli mocha 
-
-# install git
-sudo apt install git -y
-
-# promt for git info
-read -p "Your .git username " GIT_USERNAME
-read -p "Your .git email? " GIT_EMAIL
 
 # add the user git information
 git config --global user.name "$GIT_USERNAME"
@@ -45,10 +48,19 @@ sudo apt install python3-pip -y
 pip3 -V
 
 # install go
-curl -OL https://golang.org/dl/go1.20.2.linux-amd64.tar.gz
-# rm -rf /usr/local/go && tar -C /usr/local -xzf go1.20.2.linux-amd64.tar.gz
-tar -C /usr/local -xzf go1.20.2.linux-amd64.tar.gz
+GO_TARGET=go1.20.2.linux-amd64.tar.gz
+curl -OL https://golang.org/dl/$GO_TARGET
+sudo tar -C /usr/local -xzf $GO_TARGET
 export PATH=$PATH:/usr/local/go/bin
 go version
 
+# permanently add go to path
+echo "export PATH=$PATH:/usr/local/go/bin" >> /home/$NON_ROOT_USER/.bashrc
+
+# clean-up + remove last two lines from .bashrc
+head -n -2 ~/.bashrc > temp && mv temp ~/.bashrc
+rm ~/install.sh
+rm ~/$GO_TARGET
+
+# done
 echo "Welcome $NON_ROOT_USER! You're all set."
