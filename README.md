@@ -4,8 +4,8 @@ Runs a script on Ubuntu Server start-up and converts it to a VS Code optimized [
 
 ```shell
 # Create your dev image by running the following as root user on startup:
-wget -O /tmp/setup.sh https://raw.githubusercontent.com/chaseoli/vscode-vm-setup/v1.0.3/setup.sh
-bash /tmp/setup.sh
+wget -O /tmp/setup.sh https://raw.githubusercontent.com/chaseoli/vscode-vm-setup/v1.0.3/setup.sh && bash /tmp/setup.sh
+bash /tmp/install.sh
 # Enjoy!
 
 ```

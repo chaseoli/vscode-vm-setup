@@ -3,10 +3,6 @@ read -p "Enter a username (no spaces)? " NON_ROOT_USER
 
 echo "Hi $NON_ROOT_USER! Just getting some stuff ready."
 
-# promt for git info
-read -p "Your .git username " GIT_USERNAME
-read -p "Your .git email? " GIT_EMAIL
-
 # create the user
 adduser --gecos "" $NON_ROOT_USER
 usermod -aG sudo $NON_ROOT_USER
